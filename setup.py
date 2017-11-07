@@ -76,8 +76,8 @@ setup(
     name="apistar-msgpack",
     version=find_this("version"),
 
-    description="Apistar MessagePack Renderer.",
-    long_description="Apistar MessagePack Renderer pluggable component for Python3+.",
+    description="Apistar MessagePack Renderer/Parser.",
+    long_description="Apistar MessagePack Renderer and Parser pluggable components for Python3+.",
 
     url=find_this("url"),
     license=find_this("license"),
@@ -98,7 +98,7 @@ setup(
 
     py_modules=["apistar_msgpack"],
 
-    keywords="apistar messagepack renderer msgpack utils minimalism utility",
+    keywords="apistar messagepack renderer msgpack utils minimalism parser",
 
     classifiers=[
 
