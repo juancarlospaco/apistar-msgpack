@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 
 
-"""MessagePack Renderer for Apistar, see https://msgpack.org."""
+"""MessagePack Renderer/Parser for Apistar, see https://msgpack.org."""
 
 
-from apistar import http
+import json
+
+from apistar import exceptions, http
 from apistar.renderers import Renderer
 
 try:
@@ -16,7 +18,7 @@ except ImportError:
     has_msgpack = False
 
 
-__version__ = "1.0.0"
+__version__ = "1.5.0"
 __license__ = "GPLv3+ LGPLv3+"
 __author__ = "Juan Carlos"
 __email__ = "juancarlospaco@gmail.com"
@@ -35,3 +37,21 @@ class MessagePackRenderer(Renderer):
             return msgpack.packb(data)
         else:
             return umsgpack.packb(data, force_float_precision=self.precision)
+
+
+class MessagePackParser():
+    media_type = 'application/msgpack'  # 'application/x-msgpack'
+
+    def parse(self, body: http.Body) -> typing.Any:
+        if not body:
+            raise exceptions.BadRequest(detail=f'Empty MessagePack: {body}.')
+        try:
+            if has_msgpack:
+                return json.loads(msgpack.unpackb(body))
+            else:
+                return json.loads(umsgpack.unpackb(body))
+        except json.JSONDecodeError as error:
+            raise exceptions.BadRequest(detail=f'Invalid MessagePack: {error}')
+        except Exception as error:
+            raise exceptions.BadRequest(
+                detail=f'MessagePackParser Unknown Exception: {self} {error}.')
