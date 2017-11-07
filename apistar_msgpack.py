@@ -6,6 +6,7 @@
 
 
 import json
+import typing
 
 from apistar import exceptions, http
 from apistar.renderers import Renderer
