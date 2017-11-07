@@ -26,6 +26,7 @@ __email__ = "juancarlospaco@gmail.com"
 __contact__ = "https://t.me/juancarlospaco"
 __maintainer__ = "Juan Carlos"
 __url__ = "https://github.com/juancarlospaco/apistar-msgpack#apistar-msgpack"
+__all__ = ("MessagePackRenderer", "MessagePackParser")
 
 
 class MessagePackRenderer(Renderer):
