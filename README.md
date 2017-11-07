@@ -30,6 +30,24 @@ def helloworld():
 
 [The `helloworld` from Apistar Docs with MessagePackRenderer.](https://github.com/juancarlospaco/apistar-msgpack/blob/master/app.py)
 
+
+Parser usage:
+```python
+from apistar_msgpack import MessagePackParser
+
+settings = {'PARSERS': (MessagePackParser(), )}
+```
+
+Alternatively we can specify the parsers to use on a specific handler function:
+```python
+from apistar import annotate
+from apistar_msgpack import MessagePackParser
+
+@annotate(parsers=(MessagePackParser(), ))
+def helloworld():
+    # Parses MessagePack, Return a Python dict, normal Python object types.
+```
+
 - See [Apistar Docs for more info.](https://github.com/encode/apistar#configuring-the-installed-renderers)
 
 
