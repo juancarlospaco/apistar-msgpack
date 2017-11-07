@@ -3,12 +3,10 @@
 
 
 """MessagePack Renderer for Apistar, see https://msgpack.org."""
-# Smile is Faster and Smaller but Development is dead.
-# https://github.com/FasterXML/smile-format-specification
 
 
-from apistar.renderers import Renderer
 from apistar import http
+from apistar.renderers import Renderer
 
 try:
     import msgpack   # https://github.com/msgpack/msgpack-python  (Official)
@@ -18,14 +16,22 @@ except ImportError:
     has_msgpack = False
 
 
+__version__ = "1.0.0"
+__license__ = "GPLv3+ LGPLv3+"
+__author__ = "Juan Carlos"
+__email__ = "juancarlospaco@gmail.com"
+__contact__ = "https://t.me/juancarlospaco"
+__maintainer__ = "Juan Carlos"
+__url__ = "https://github.com/juancarlospaco/apistar-msgpack#apistar-msgpack"
+
+
 class MessagePackRenderer(Renderer):
     media_type = 'application/msgpack'  # 'application/x-msgpack'
     charset = 'utf-8'                   # Its a Binary format anyways.
-    precision = 'single'                # 'double'
-    use_list = False                    # Tuple if False.
+    precision = 'single'                # 'double' (only for u-msgpack-python)
 
     def render(self, data: http.ResponseData) -> bytes:
         if has_msgpack:
-            return msgpack.packb(data, use_list=self.use_list)
+            return msgpack.packb(data)
         else:
             return umsgpack.packb(data, force_float_precision=self.precision)
