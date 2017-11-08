@@ -1,10 +1,17 @@
 # apistar-msgpack
 
-[Apistar](https://github.com/encode/apistar) [MessagePack](https://msgpack.org) Renderer pluggable component for Python 3.6+.
+[Apistar](https://github.com/encode/apistar) [MessagePack](https://msgpack.org) Renderer and Parser pluggable components for Python 3.6+.
 
 - Change your Apistar App from JSON to MessagePack just adding 1 line.
 - Single file tiny module installs to `/usr/lib/python3.6/site-packages/apistar_msgpack.py`
 - 1 Dependency, the Official Python MessagePack Lib.
+
+
+### Install:
+
+```
+pip install apistar-msgpack
+```
 
 
 ### Usage:
