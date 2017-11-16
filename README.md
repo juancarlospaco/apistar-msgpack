@@ -64,6 +64,10 @@ def helloworld():
 
 Alternatively it also works with [u-msgpack-python](https://github.com/vsergeev/u-msgpack-python) (Unofficial, Slower, Unsupported).
 
+**Optional:**
+
+- Optionally (not required) it also works with [uJSON](https://github.com/esnme/ultrajson#ultrajson) (Faster JSON load).
+
 
 ### Notes:
 
