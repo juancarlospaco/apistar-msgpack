@@ -71,5 +71,7 @@ Alternatively it also works with [u-msgpack-python](https://github.com/vsergeev/
 
 ### Notes:
 
+Most of Databases and ORMs will have no problem storing MessagePack directly as strings UTF-8 (eg PostgreSQL).
+
 We also look for other alternatives, like [Smile](https://github.com/FasterXML/smile-format-specification) which is Faster and Smaller, but Development is dead.
 Eg. its JavaScript Lib is incomplete and abandoned, No Python3 Lib, etc.
